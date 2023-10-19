@@ -2,17 +2,25 @@ import Image from "next/image";
 import { Inter } from "next/font/google";
 import lizard from "../assets/pic1.png";
 import logo from "../assets/pic2.png";
-
-const inter = Inter({ subsets: ["latin"] });
+import { useState } from "react";
 
 export default function Home() {
-  console.log(lizard);
+  const [state, setState] = useState();
+  const [loading, setLoading] = useState(false);
 
   const handleSearch = async () => {
-    const result = await fetch("http://localhost:3000/api/hello").then((res) =>
-      res.json()
-    );
-    console.log(result);
+    if (state) {
+      setLoading(true);
+      const result = await fetch(
+        `http://localhost:3000/api/user?search=${state}`
+      ).then((res) => {
+        setLoading(false);
+        return res.json();
+      });
+      console.log(result);
+    } else {
+      alert("Please enter something");
+    }
   };
 
   return (
@@ -42,7 +50,7 @@ export default function Home() {
       </header>
       <main id="content" className="mx-auto">
         <div
-          className="mt-3 mx-auto py-[440px] flex justify-center"
+          className="mx-auto flex  h-[89vh]  justify-center items-center"
           style={{
             backgroundImage: `url('${lizard.src}')`,
             backgroundSize: "cover",
@@ -51,6 +59,7 @@ export default function Home() {
           <input
             type="text"
             className="form-input px-4 py-2 min-w-[300px]"
+            onChange={(e) => setState(e.target.value)}
             id="searchBar"
             placeholder="Search..."
           />
@@ -59,7 +68,7 @@ export default function Home() {
             id="searchBtn"
             onClick={() => handleSearch()}
           >
-            Search
+            {loading ? "Searching....." : "Search"}
           </button>
         </div>
       </main>
