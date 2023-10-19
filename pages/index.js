@@ -64,13 +64,13 @@ export default function Home() {
             id="searchBar"
             placeholder="Search..."
           />
-          <button
+          <a
+            href={`/search_result?search=${state}`}
             className="btn bg-[#009ABC] text-black-600 ml-2 px-12 py-2 font-semibold"
             id="searchBtn"
-            onClick={() => handleSearch()}
           >
             {loading ? "Searching....." : "Search"}
-          </button>
+          </a>
         </div>
       </main>
     </>

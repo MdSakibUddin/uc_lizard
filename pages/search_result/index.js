@@ -1,13 +1,31 @@
 import Image from "next/image";
 import { Inter } from "next/font/google";
 import logo from "../../assets/pic2.png";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 
 export default function Home() {
   const [state, setState] = useState();
   const [loading, setLoading] = useState(false);
-  const [resultState, setResultState] = useState();
-  const handleSearch = async () => {
+  const [resultState, setResultState] = useState([]);
+  const router = useRouter();
+  const params = router.query;
+  useEffect(() => {
+    if (params?.search) {
+      const getResult = async () => {
+        const result = await fetch(
+          `http://localhost:3000/api/user?search=${params.search}`
+        ).then((res) => {
+          return res.json();
+        });
+        setResultState(result);
+        console.log(params);
+      };
+      getResult();
+    }
+  }, [params]);
+  const handleSearch = async (e) => {
+    e.preventDefault();
     if (state) {
       setLoading(true);
       const result = await fetch(
@@ -50,7 +68,7 @@ export default function Home() {
       </header>
       <main id="content" className="mx-auto bg-[#92D6E3] min-h-[89vh]">
         <div className="mx-auto flex justify-center items-center pt-10">
-          <form onSubmit={() => handleSearch()}>
+          <form onSubmit={(e) => handleSearch(e)}>
             <input
               type="text"
               className="form-input px-4 py-2 min-w-[300px] border border-black"
@@ -68,40 +86,56 @@ export default function Home() {
           </form>
         </div>
         <div className="container mx-auto mt-10">
-          <table class="table-auto bg-white p-8 rounded-lg w-full text-center border border-black">
-            <thead>
-              <tr className="border-b border-black bg-[#009ABC]">
-                <th>SpecimenID</th>
-                <th className="border-x border-black">Species</th>
-                <th className="border-x border-black">EnteredBy</th>
-                <th className="border-x border-black">CauseOfDeath</th>
-                <th className="border-x border-black">Family</th>
-                <th className="border-x border-black">Genus</th>
-                <th className="border-x border-black">LocDesc</th>
-                <th className="border-x border-black">Maturity</th>
-                <th className="border-x border-black">Sex</th>
-                <th className="border-x border-black">SexStatus</th>
-                <th>Species</th>
-              </tr>
-            </thead>
-            <tbody>
-              {resultState?.result1?.map((item) => (
-                <tr className="border-b border-black">
-                  <td>{item.SpecimenID}</td>
-                  <td className="border-x border-black">{item.Species}</td>
-                  <td className="border-x border-black">{item.EnteredBy}</td>
-                  <td className="border-x border-black">{item.CauseOfDeath}</td>
-                  <td className="border-x border-black">{item.Family}</td>
-                  <td className="border-x border-black">{item.Genus}</td>
-                  <td className="border-x border-black">{item.LocDesc}</td>
-                  <td className="border-x border-black">{item.Maturity}</td>
-                  <td className="border-x border-black">{item.Sex}</td>
-                  <td className="border-x border-black">{item.SexStatus}</td>
-                  <td>{item.Species}</td>
+          <div className="overflow-x-scroll md:max-w-[200px]">
+            <table class="table-auto bg-white p-8 rounded-lg w-full text-center border border-black ">
+              <thead>
+                <tr className="border-b border-black bg-[#009ABC]">
+                  <th>SpecimenID</th>
+                  <th className="border-x border-black">Species</th>
+                  <th className="border-x border-black">EnteredBy</th>
+                  <th className="border-x border-black">CauseOfDeath</th>
+                  <th className="border-x border-black">Family</th>
+                  <th className="border-x border-black">Genus</th>
+                  <th className="border-x border-black">LocDesc</th>
+                  <th className="border-x border-black">Maturity</th>
+                  <th className="border-x border-black">Sex</th>
+                  <th className="border-x border-black">SexStatus</th>
+                  <th>Species</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {resultState?.result1?.map((item) => (
+                  <tr className="border-b border-black">
+                    <td>{item.SpecimenID}</td>
+                    <td className="border-x border-black px-2">
+                      {item.Species}
+                    </td>
+                    <td className="border-x border-black px-2">
+                      {item.EnteredBy}
+                    </td>
+                    <td className="border-x border-black px-2">
+                      {item.CauseOfDeath}
+                    </td>
+                    <td className="border-x border-black px-2">
+                      {item.Family}
+                    </td>
+                    <td className="border-x border-black px-2">{item.Genus}</td>
+                    <td className="border-x border-black px-2">
+                      {item.LocDesc}
+                    </td>
+                    <td className="border-x border-black px-2">
+                      {item.Maturity}
+                    </td>
+                    <td className="border-x border-black px-2">{item.Sex}</td>
+                    <td className="border-x border-black px-2">
+                      {item.SexStatus}
+                    </td>
+                    <td>{item.Species}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       </main>
     </>
