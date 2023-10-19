@@ -7,7 +7,7 @@ import { useState } from "react";
 export default function Home() {
   const [state, setState] = useState();
   const [loading, setLoading] = useState(false);
-
+  const [resultState, setResultState] = useState();
   const handleSearch = async () => {
     if (state) {
       setLoading(true);
@@ -17,6 +17,7 @@ export default function Home() {
         setLoading(false);
         return res.json();
       });
+      setResultState(result);
       console.log(result);
     } else {
       alert("Please enter something");
@@ -25,7 +26,7 @@ export default function Home() {
 
   return (
     <>
-      <header className="container mx-auto text-center py-4">
+      <header className="container mx-auto text-center py-4 ">
         <div className="flex justify-between items-center">
           <div className="flex items-center gap-3">
             <Image src={logo} height={50}></Image>
@@ -33,7 +34,7 @@ export default function Home() {
               Arthur Georges Lizard Colony{" "}
             </h1>
           </div>
-          <nav className="inline-block">
+          <nav className="inline-block font-semibold ">
             <a href="#" className="mr-3" id="homeLink">
               Home
             </a>
@@ -64,7 +65,7 @@ export default function Home() {
             placeholder="Search..."
           />
           <button
-            className="btn bg-white text-blue-600 ml-2 px-12 py-2"
+            className="btn bg-[#009ABC] text-black-600 ml-2 px-12 py-2 font-semibold"
             id="searchBtn"
             onClick={() => handleSearch()}
           >
