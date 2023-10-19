@@ -62,7 +62,7 @@ export default function Home() {
                     </form>
                 </div>
                 <div className="container mx-auto mt-10">
-                    {resultState?.result1?.length && (
+                    {resultState?.result1?.length ? (
                         <div className="overflow-x-scroll md:max-w-[200px] lg:max-w-full">
                             <table class="table-auto bg-white p-8 rounded-lg w-full text-center border border-black ">
                                 <thead>
@@ -140,9 +140,11 @@ export default function Home() {
                                 </tbody>
                             </table>
                         </div>
+                    ) : (
+                        ''
                     )}
                     <div className="mt-24"></div>
-                    {resultState?.result2?.length && (
+                    {resultState?.result2?.length ? (
                         <div className="overflow-x-scroll md:max-w-[200px] lg:max-w-full">
                             <table class="table-auto bg-white p-8 rounded-lg w-full text-center border border-black ">
                                 <thead>
@@ -179,7 +181,7 @@ export default function Home() {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {resultState?.result1?.map(
+                                    {resultState?.result2?.map(
                                         (item, index) => (
                                             <tr
                                                 className="border-b border-black"
@@ -220,6 +222,8 @@ export default function Home() {
                                 </tbody>
                             </table>
                         </div>
+                    ) : (
+                        ''
                     )}
                     <div className="mt-24"></div>
                     {resultState?.result3?.length ? (
@@ -259,7 +263,7 @@ export default function Home() {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {resultState?.result1?.map(
+                                    {resultState?.result3?.map(
                                         (item, index) => (
                                             <tr
                                                 className="border-b border-black"
@@ -341,7 +345,7 @@ export default function Home() {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {resultState?.result1?.map(
+                                    {resultState?.result4?.map(
                                         (item, index) => (
                                             <tr
                                                 className="border-b border-black"
@@ -423,7 +427,7 @@ export default function Home() {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {resultState?.result1?.map(
+                                    {resultState?.result5?.map(
                                         (item, index) => (
                                             <tr
                                                 className="border-b border-black"

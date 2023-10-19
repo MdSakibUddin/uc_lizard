@@ -61,46 +61,48 @@ export default async (req, res) => {
             OR VerifiedBy = ?
         `;
         const query4 = `
-        SELECT * FROM F_cultures WHERE
-            SpecimenID = ? OR CultureID = ? OR AltCultureID = ?
-            OR Genus = ?
-            OR Species = ?
-            OR Storage = ?
-            OR Stem = ?
-            OR Box = ?
-            OR Position = ?
-            OR Tissue = ?
-            OR SampledBy = ?
-            OR Passage = ?
-            OR Status = ?
-            OR Custodian = ?
-            OR Comments = ?
-            OR Project = ?
-            OR SubProject = ?
-            OR EnteredBy = ?
-            OR RecordStatus = ?
-            OR VerifiedBy = ?
+        SELECT * FROM G_genomics WHERE
+        SampleID = ?
+        OR Genus = ?
+        OR Species = ?
+        OR Tissue = ?
+        OR Molecule = ?
+        OR Provider = ?
+        OR Platform = ?
+        OR Service = ?
+        OR Ref = ?
+        OR Storage = ?
+        OR Filename = ?
+        OR Path = ?
+        OR Repository = ?
+        OR Accession = ?
+        OR RepFilename = ?
+        OR Comments = ?
+        OR Project = ?
+        OR SubProject = ?
+        OR Purpose = ?
+        OR EnteredBy = ?
+        OR RecordStatus = ?
+        OR VerifiedBy = ?
+        
+
         `;
         const query5 = `
-        SELECT * FROM F_cultures WHERE
-            SpecimenID = ? OR CultureID = ? OR AltCultureID = ?
-            OR Genus = ?
-            OR Species = ?
-            OR Storage = ?
-            OR Stem = ?
-            OR Box = ?
-            OR Position = ?
-            OR Tissue = ?
-            OR SampledBy = ?
-            OR Passage = ?
-            OR Status = ?
-            OR Custodian = ?
-            OR Comments = ?
-            OR Project = ?
-            OR SubProject = ?
-            OR EnteredBy = ?
-            OR RecordStatus = ?
-            OR VerifiedBy = ?
+        SELECT * FROM H_cages WHERE
+        SpecimenID = ?
+        OR Genus = ?
+        OR Species = ?
+        OR RoomID = ?
+        OR NewCageID = ?
+        OR Purpose = ?
+        OR MovedFrom = ?
+        OR DateMoved = ?
+        OR MovedBy = ?
+        OR Comments = ?       
+        OR EnteredBy = ?
+        OR RecordStatus = ?
+        OR VerifiedBy = ?
+        
         `;
         let [rows1] = await connection.execute(query, [
             ...Array(37).fill(searchValue),
@@ -113,10 +115,10 @@ export default async (req, res) => {
             ...Array(20).fill(searchValue),
         ]);
         let [rows4] = await connection.execute(query4, [
-            ...Array(20).fill(searchValue),
+            ...Array(22).fill(searchValue),
         ]);
         let [rows5] = await connection.execute(query5, [
-            ...Array(20).fill(searchValue),
+            ...Array(13).fill(searchValue),
         ]);
         await connection.end();
         res.json({
