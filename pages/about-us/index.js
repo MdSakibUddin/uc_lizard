@@ -46,24 +46,23 @@ export default function Home() {
     const members = [
         {
             name: 'Md Sakib Uddin',
-            course: 'Bachelor of Computer Science and Engineering, BRAC University',
-            course2:
-                'Masters of Information Technology and Systems (Specialisation in Cyber Security), University of Canberra',
+            course: 'Masters of Information Technology and Systems (Specialisation in Cyber Security), University of Canberra',
             role: 'Frontend and Backend Developer',
         },
         {
-            name: 'Md Sakib Uddin',
-            course: 'Bachelor of Computer Science and Engineering, BRAC University',
-            course2:
-                'Masters of Information Technology and Systems (Specialisation in Cyber Security), University of Canberra',
-            role: 'Frontend and Backend Developer',
+            name: 'Marzuk Amin',
+            course: 'Masters of Information Technology and Systems (Specialisation in Cyber Security), University of Canberra',
+            role: 'The artist behind the intuitive and visually appealing interface you see, Marzuk makes sure that our platform is not only functional but also delightful to navigate',
         },
         {
-            name: 'Md Sakib Uddin',
-            course: 'Bachelor of Computer Science and Engineering, BRAC University',
-            course2:
-                'Masters of Information Technology and Systems (Specialisation in Cyber Security), University of Canberra',
-            role: 'Frontend and Backend Developer',
+            name: 'Shane Yep',
+            course: 'Masters of Information Technology and Systems (Specialisation in Cyber Security), University of Canberra',
+            role: 'Orchestrating our project from inception to completion, Shane ensures milestones are met and the project remains on track',
+        },
+        {
+            name: 'Nishika Acharya',
+            course: 'Masters of Information Technology and Systems (Specialisation in Cyber Security), University of Canberra',
+            role: ' Our guardian against bugs and discrepancies. Nishika rigorously tests every corner of our platform to ensure a smooth user experience',
         },
     ];
 

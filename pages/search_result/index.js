@@ -69,7 +69,7 @@ export default function Home() {
                                     <tr className="border-b border-black bg-[#009ABC]">
                                         <th>SpecimenID</th>
                                         <th className="border-x border-black">
-                                            Species
+                                            Source
                                         </th>
                                         <th className="border-x border-black">
                                             EnteredBy
@@ -107,7 +107,7 @@ export default function Home() {
                                             >
                                                 <td>{item.SpecimenID}</td>
                                                 <td className="border-x border-black px-2">
-                                                    {item.Species}
+                                                    {item.Source}
                                                 </td>
                                                 <td className="border-x border-black px-2">
                                                     {item.EnteredBy}
@@ -157,25 +157,25 @@ export default function Home() {
                                             EnteredBy
                                         </th>
                                         <th className="border-x border-black">
-                                            CauseOfDeath
+                                            RecordStatus
                                         </th>
                                         <th className="border-x border-black">
-                                            Family
+                                            SubProject
                                         </th>
                                         <th className="border-x border-black">
                                             Genus
                                         </th>
                                         <th className="border-x border-black">
-                                            LocDesc
+                                            DateSampled
                                         </th>
                                         <th className="border-x border-black">
-                                            Maturity
+                                            Freezer
                                         </th>
                                         <th className="border-x border-black">
-                                            Sex
+                                            Medium
                                         </th>
                                         <th className="border-x border-black">
-                                            SexStatus
+                                            Position
                                         </th>
                                         <th>Species</th>
                                     </tr>
@@ -195,25 +195,25 @@ export default function Home() {
                                                     {item.EnteredBy}
                                                 </td>
                                                 <td className="border-x border-black px-2">
-                                                    {item.CauseOfDeath}
+                                                    {item.RecordStatus}
                                                 </td>
                                                 <td className="border-x border-black px-2">
-                                                    {item.Family}
+                                                    {item.SubProject}
                                                 </td>
                                                 <td className="border-x border-black px-2">
                                                     {item.Genus}
                                                 </td>
                                                 <td className="border-x border-black px-2">
-                                                    {item.LocDesc}
+                                                    {item.DateSampled}
                                                 </td>
                                                 <td className="border-x border-black px-2">
-                                                    {item.Maturity}
+                                                    {item.Freezer}
                                                 </td>
                                                 <td className="border-x border-black px-2">
-                                                    {item.Sex}
+                                                    {item.Medium}
                                                 </td>
                                                 <td className="border-x border-black px-2">
-                                                    {item.SexStatus}
+                                                    {item.Position}
                                                 </td>
                                                 <td>{item.Species}</td>
                                             </tr>
