@@ -27,7 +27,7 @@ export default function Home() {
         if (state) {
             setLoading(true);
             const result = await fetch(
-                `http://localhost:3000/api/user?search=${state}`,
+                `https://uc-lizard.vercel.app/api/user?search=${state}`,
             ).then((res) => {
                 setLoading(false);
                 return res.json();
