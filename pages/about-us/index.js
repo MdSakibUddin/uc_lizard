@@ -56,7 +56,7 @@ export default function Home() {
         },
         {
             name: 'Shane Yep',
-            course: 'Masters of Information Technology and Systems (Specialisation in Cyber Security), University of Canberra',
+            course: 'Masters of Information Technology and Systems (Specialisation in Data Science), University of Canberra',
             role: 'Orchestrating our project from inception to completion, Shane ensures milestones are met and the project remains on track',
         },
         {
@@ -121,9 +121,6 @@ export default function Home() {
                                 <p>
                                     <strong>Course:</strong> {item.course}
                                 </p>
-                                <p>
-                                    <strong>Course2:</strong> {item.course2}
-                                </p>
                             </div>
                         ))}
                     </div>
@@ -132,8 +129,8 @@ export default function Home() {
                             Our Legacy
                         </h2>
                         <p>
-                            Our project isn't just about creating a digital
-                            platform; it's about fostering an environment where
+                            Our project is not just about creating a digital
+                            platform; it is about fostering an environment where
                             the well-being and insights of the Arthur Georges
                             lizard colony become part of an interconnected web
                             of knowledge. Through our platform, we aim to make
@@ -163,8 +160,8 @@ export default function Home() {
                     </div>
                     <div className="bg-white shadow rounded-b p-5 text-center">
                         <p>
-                            Should you have any inquiries or feedback, don't
-                            hesitate to reach out. We're continually looking to
+                            Should you have any inquiries or feedback, do not
+                            hesitate to reach out. We are continually looking to
                             evolve and appreciate your support in our journey.
                         </p>
                     </div>
