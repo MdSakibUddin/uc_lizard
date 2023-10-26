@@ -61,7 +61,7 @@ export default function Home() {
         },
         {
             name: 'Nishika Acharya',
-            course: 'Masters of Information Technology and Systems (Specialisation in Cyber Security), University of Canberra',
+            course: 'Masters of Information Technology and Systems (Specialisation in Project Managment), University of Canberra',
             role: ' Our guardian against bugs and discrepancies. Nishika rigorously tests every corner of our platform to ensure a smooth user experience',
         },
     ];
